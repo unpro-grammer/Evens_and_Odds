@@ -8,6 +8,8 @@ public class Game {
 
   int round = 0;
   String player = "";
+  Difficulty difficulty;
+  Choice choice;
 
   /**
    * Registers the desired difficulty level and choice (odd or even), and then greets the user based

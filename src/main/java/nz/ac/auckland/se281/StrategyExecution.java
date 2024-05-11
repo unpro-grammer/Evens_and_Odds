@@ -7,4 +7,8 @@ public class StrategyExecution {
   public StrategyExecution(GameStrategy gameStrat) {
     this.gameStrat = gameStrat;
   }
+
+  public void aiPlay() {
+    gameStrat.getFingersCount();
+  }
 }
