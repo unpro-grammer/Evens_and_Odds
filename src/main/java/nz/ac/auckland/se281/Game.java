@@ -7,6 +7,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   int round = 0;
+  String player = "";
 
   /**
    * Registers the desired difficulty level and choice (odd or even), and then greets the user based
@@ -19,6 +20,7 @@ public class Game {
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+    this.player = options[0];
   }
 
   private boolean isValidInput(String num) {
@@ -42,6 +44,7 @@ public class Game {
       MessageCli.INVALID_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
+    MessageCli.PRINT_INFO_HAND.printMessage(player, input);
   }
 
   public void endGame() {}
