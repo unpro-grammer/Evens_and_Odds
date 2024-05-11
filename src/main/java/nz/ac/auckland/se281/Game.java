@@ -38,7 +38,10 @@ public class Game {
     MessageCli.START_ROUND.printMessage(round + "");
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
-    while (!isValidInput(input)) {}
+    while (!isValidInput(input)) {
+      MessageCli.INVALID_INPUT.printMessage();
+      break;
+    }
   }
 
   public void endGame() {}
