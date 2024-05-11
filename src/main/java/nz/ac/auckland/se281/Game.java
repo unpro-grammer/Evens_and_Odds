@@ -48,10 +48,13 @@ public class Game {
     switch (choice) {
       case ODD:
         winner = Utils.isOdd(sum) ? player : ai.getName();
+        break;
       case EVEN:
         winner = Utils.isEven(sum) ? player : ai.getName();
+        break;
       default:
         winner = player;
+        break;
     }
 
     oddOrEven = Utils.isEven(sum) ? "EVEN" : "ODD";
