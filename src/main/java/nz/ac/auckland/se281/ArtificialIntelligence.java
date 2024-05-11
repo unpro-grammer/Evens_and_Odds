@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 
 public abstract class ArtificialIntelligence {
+  protected String name = "HAL-9000";
   protected Choice choice;
   protected GameStrategy gameStrat;
 

@@ -23,6 +23,8 @@ public class Game {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     this.player = options[0];
+    this.difficulty = difficulty;
+    this.choice = choice;
   }
 
   private boolean isValidInput(String num) {
@@ -47,6 +49,9 @@ public class Game {
       input = Utils.scanner.nextLine();
     }
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
+
+    ArtificialIntelligence aiPlayer = AIFactory.createAI(difficulty, choice);
+    aiPlayer.play();
   }
 
   public void endGame() {}

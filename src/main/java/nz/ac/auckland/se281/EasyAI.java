@@ -6,11 +6,11 @@ public class EasyAI extends ArtificialIntelligence {
 
   public EasyAI(Choice choice) {
     super(choice);
+    gameStrat = new RandomStrategy();
   }
 
   @Override
   public void play() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'play'");
+    MessageCli.PRINT_INFO_HAND.printMessage(name, gameStrat.playNumber());
   }
 }
