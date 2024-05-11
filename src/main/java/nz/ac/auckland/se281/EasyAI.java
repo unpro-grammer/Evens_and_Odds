@@ -8,10 +8,4 @@ public class EasyAI extends ArtificialIntelligence {
     super(choice);
     gameStrat = new RandomStrategy();
   }
-
-  @Override
-  public void play() {
-    super.play();
-    MessageCli.PRINT_INFO_HAND.printMessage(name, currentHand + "");
-  }
 }

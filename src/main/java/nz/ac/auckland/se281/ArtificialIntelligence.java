@@ -6,7 +6,7 @@ public abstract class ArtificialIntelligence {
   protected String name = "HAL-9000";
   protected Choice choice;
   protected GameStrategy gameStrat;
-  int currentHand;
+  private int currentHand;
 
   public ArtificialIntelligence(Choice choice) {
     this.choice = choice;
@@ -18,5 +18,14 @@ public abstract class ArtificialIntelligence {
 
   public void play() {
     currentHand = gameStrat.playNumber();
+    MessageCli.PRINT_INFO_HAND.printMessage(name, currentHand + "");
+  }
+
+  public int getCurrentHand() {
+    return currentHand;
+  }
+
+  public String getName() {
+    return name;
   }
 }

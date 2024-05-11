@@ -38,6 +38,27 @@ public class Game {
     return (number <= 5 && number >= 0) ? true : false;
   }
 
+  private void getWinner(int playerHand, ArtificialIntelligence ai, Choice choice) {
+
+    int aiHand = ai.getCurrentHand();
+    int sum = playerHand + aiHand;
+    String winner;
+    String oddOrEven;
+
+    switch (choice) {
+      case ODD:
+        winner = Utils.isOdd(sum) ? player : ai.getName();
+      case EVEN:
+        winner = Utils.isEven(sum) ? player : ai.getName();
+      default:
+        winner = player;
+    }
+
+    oddOrEven = Utils.isEven(sum) ? "EVEN" : "ODD";
+
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(sum + "", oddOrEven, winner);
+  }
+
   public void play() {
     round++;
     MessageCli.START_ROUND.printMessage(round + "");
@@ -51,6 +72,7 @@ public class Game {
 
     ArtificialIntelligence aiPlayer = AIFactory.createAI(difficulty, choice);
     aiPlayer.play();
+    getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 
   public void endGame() {}
