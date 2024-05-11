@@ -16,5 +16,7 @@ public abstract class ArtificialIntelligence {
     this.gameStrat = gameStrat;
   }
 
-  public abstract void play();
+  public void play() {
+    currentHand = gameStrat.playNumber();
+  }
 }
