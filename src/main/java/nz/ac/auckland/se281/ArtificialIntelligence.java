@@ -1,10 +1,12 @@
 package nz.ac.auckland.se281;
 
+import nz.ac.auckland.se281.Main.Difficulty;
+
 public abstract class ArtificialIntelligence {
-  private String difficulty;
+  private Difficulty difficulty;
   private GameStrategy gamestrat;
 
-  public ArtificialIntelligence(String difficulty) {
+  public ArtificialIntelligence(Difficulty difficulty) {
     this.difficulty = difficulty;
   }
 

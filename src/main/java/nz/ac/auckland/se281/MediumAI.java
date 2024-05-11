@@ -1,8 +1,10 @@
 package nz.ac.auckland.se281;
 
+import nz.ac.auckland.se281.Main.Difficulty;
+
 public class MediumAI extends ArtificialIntelligence {
 
-  public MediumAI(String difficulty) {
+  public MediumAI(Difficulty difficulty) {
     super(difficulty);
     // TODO Auto-generated constructor stub
   }
