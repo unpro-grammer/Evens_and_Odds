@@ -2,8 +2,15 @@ package nz.ac.auckland.se281;
 
 public class RandomStrategy implements GameStrategy {
 
+  int aiHand;
+
   @Override
-  public String playNumber() {
-    return Utils.getRandomNumberRange(0, 5) + "";
+  public int playNumber() {
+    aiHand = Utils.getRandomNumberRange(0, 5);
+    return aiHand;
+  }
+
+  public int getAiHand() {
+    return aiHand;
   }
 }

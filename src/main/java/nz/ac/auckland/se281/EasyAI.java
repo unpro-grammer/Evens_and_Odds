@@ -11,6 +11,7 @@ public class EasyAI extends ArtificialIntelligence {
 
   @Override
   public void play() {
-    MessageCli.PRINT_INFO_HAND.printMessage(name, gameStrat.playNumber());
+    currentHand = gameStrat.playNumber();
+    MessageCli.PRINT_INFO_HAND.printMessage(name, currentHand + "");
   }
 }
