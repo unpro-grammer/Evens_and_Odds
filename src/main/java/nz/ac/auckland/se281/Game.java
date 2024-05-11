@@ -28,15 +28,14 @@ public class Game {
   }
 
   private boolean isValidInput(String num) {
-    try {
-      int number = Integer.parseInt(num);
-      if (number <= 5 && number >= 0) {
-        return true;
-      }
-      return false;
-    } catch (Exception e) {
+
+    if (!Utils.isInteger(num)) {
       return false;
     }
+
+    int number = Integer.parseInt(num);
+
+    return (number <= 5 && number >= 0) ? true : false;
   }
 
   public void play() {

@@ -4,6 +4,6 @@ public class RandomStrategy implements GameStrategy {
 
   @Override
   public String playNumber() {
-    return 1 + "";
+    return Utils.getRandomNumberRange(0, 5) + "";
   }
 }
