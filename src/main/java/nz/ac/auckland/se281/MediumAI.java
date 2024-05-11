@@ -1,11 +1,11 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Difficulty;
+import nz.ac.auckland.se281.Main.Choice;
 
 public class MediumAI extends ArtificialIntelligence {
 
-  public MediumAI(Difficulty difficulty) {
-    super(difficulty);
+  public MediumAI(Choice choice) {
+    super(choice);
     // TODO Auto-generated constructor stub
   }
 

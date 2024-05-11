@@ -1,11 +1,11 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Difficulty;
+import nz.ac.auckland.se281.Main.Choice;
 
 public class EasyAI extends ArtificialIntelligence {
 
-  public EasyAI(Difficulty difficulty) {
-    super(difficulty);
+  public EasyAI(Choice Choice) {
+    super(choice);
   }
 
   @Override

@@ -1,11 +1,11 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Difficulty;
+import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAI extends ArtificialIntelligence {
 
-  public HardAI(Difficulty difficulty) {
-    super(difficulty);
+  public HardAI(Choice choice) {
+    super(choice);
     // TODO Auto-generated constructor stub
   }
 
