@@ -21,10 +21,24 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
+  private boolean isValidInput(String num) {
+    try {
+      int number = Integer.parseInt(num);
+      if (number <= 5 && number >= 0) {
+        return true;
+      }
+      return false;
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
   public void play() {
     round++;
     MessageCli.START_ROUND.printMessage(round + "");
     MessageCli.ASK_INPUT.printMessage();
+    String input = Utils.scanner.nextLine();
+    while (!isValidInput(input)) {}
   }
 
   public void endGame() {}
