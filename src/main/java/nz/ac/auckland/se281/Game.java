@@ -40,7 +40,7 @@ public class Game {
     String input = Utils.scanner.nextLine();
     while (!isValidInput(input)) {
       MessageCli.INVALID_INPUT.printMessage();
-      break;
+      input = Utils.scanner.nextLine();
     }
   }
 
