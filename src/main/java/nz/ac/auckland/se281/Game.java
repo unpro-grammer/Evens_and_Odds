@@ -11,7 +11,7 @@ public class Game {
   Difficulty difficulty;
   Choice choice;
   ArtificialIntelligence aiPlayer = null;
-  boolean AIWonLastGame = false;
+  private boolean AIWonLastGame = false;
   private int humanWins;
   private int aiWins;
 
@@ -114,9 +114,14 @@ public class Game {
       return;
     }
     showStats();
+    if (humanWins != aiWins) {
+      String overallWinner = humanWins > aiWins ? player : aiPlayer.getName();
+      MessageCli.PRINT_END_GAME.printMessage(overallWinner);
+    } else {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    }
 
-    //
-
+    // reset game (no currently active game)
     aiPlayer = null;
   }
 
