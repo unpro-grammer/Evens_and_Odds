@@ -11,6 +11,9 @@ public class MediumAI extends ArtificialIntelligence {
 
   @Override
   public void play(int round, int[] history) {
+    if (round == 4) {
+      setStrategy(new TopStrategy());
+    }
     super.play(round, history);
   }
 }
