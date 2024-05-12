@@ -6,12 +6,15 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  int round = 0;
-  String player = "";
+  int round;
+  String player;
   Difficulty difficulty;
   Choice choice;
   ArtificialIntelligence aiPlayer = null;
   boolean AIWonLastGame = false;
+  private int humanWins;
+  private int aiWins;
+  private int ties;
 
   // records frequency of even nums being chosen in index 0, and odd in index 1
   int[] history;
@@ -27,11 +30,15 @@ public class Game {
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+    this.round = 0;
     this.player = options[0];
     this.difficulty = difficulty;
     this.choice = choice;
     this.aiPlayer = ArtificialIntelligenceFactory.createAI(difficulty, choice);
     this.history = new int[] {0, 0};
+    this.humanWins = 0;
+    this.aiWins = 0;
+    this.ties = 0;
   }
 
   private boolean isValidInput(String num) {
