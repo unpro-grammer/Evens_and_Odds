@@ -6,11 +6,11 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  int round;
-  String player;
-  Difficulty difficulty;
-  Choice choice;
-  ArtificialIntelligence aiPlayer = null;
+  private int round;
+  private String player;
+  protected Difficulty difficulty;
+  protected Choice choice;
+  private ArtificialIntelligence aiPlayer = null;
   private boolean AIWonLastGame = false;
   private int humanWins;
   private int aiWins;
@@ -22,9 +22,9 @@ public class Game {
    * Registers the desired difficulty level and choice (odd or even), and then greets the user based
    * on the name they give.
    *
-   * @param difficulty difficulty level between easy, medium, and hard
-   * @param choice player's wager between odd and even
-   * @param options array containing user's name
+   * @param difficulty Difficulty level between easy, medium, and hard.
+   * @param choice Player's wager between odd and even.
+   * @param options Array containing user's name.
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -40,6 +40,12 @@ public class Game {
     this.aiWins = 0;
   }
 
+  /**
+   * Checks the input is between 0 and 5 (inclusive), and therefore valid.
+   *
+   * @param num The user's provided input.
+   * @return Boolean value for whether the input is valid.
+   */
   private boolean isValidInput(String num) {
 
     if (!Utils.isInteger(num)) {
@@ -51,6 +57,13 @@ public class Game {
     return (number <= 5 && number >= 0) ? true : false;
   }
 
+  /**
+   * Checks whether the human player or the AI won the round.
+   *
+   * @param playerHand The number of fingers the human chose.
+   * @param ai The number of fingers the AI chose.
+   * @param choice The human's bet between ODD and EVEN.
+   */
   private void getWinner(int playerHand, ArtificialIntelligence ai, Choice choice) {
 
     int aiHand = ai.getCurrentHand();
@@ -83,6 +96,7 @@ public class Game {
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(sum + "", oddOrEven, winner);
   }
 
+  /** Start a new round given a game is active. */
   public void play() {
     if (!gameActive()) {
       return;
@@ -101,6 +115,11 @@ public class Game {
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 
+  /**
+   * Checks whether there is a currently active game by seeing if an AI opponent exists.
+   *
+   * @return Boolean value for whether there is an active game.
+   */
   private boolean gameActive() {
     if (aiPlayer == null) {
       MessageCli.GAME_NOT_STARTED.printMessage();
@@ -109,6 +128,10 @@ public class Game {
     return true;
   }
 
+  /**
+   * Ends current game by resetting AI player to null if there is an active game. Display stats and
+   * overall winner.
+   */
   public void endGame() {
     if (!gameActive()) {
       return;
@@ -125,6 +148,7 @@ public class Game {
     aiPlayer = null;
   }
 
+  /** Display current wins/losses of each player in an active game. */
   public void showStats() {
     if (!gameActive()) {
       return;

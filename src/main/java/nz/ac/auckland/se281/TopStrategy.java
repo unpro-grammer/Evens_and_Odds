@@ -4,6 +4,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class TopStrategy implements GameStrategy {
 
+  /** Generate a valid number based on human player's patterns. */
   @Override
   public int playNumber(int[] history, Choice choice) {
     switch (choice) {
