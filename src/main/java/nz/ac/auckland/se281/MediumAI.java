@@ -11,10 +11,6 @@ public class MediumAI extends ArtificialIntelligence {
 
   @Override
   public void play(int round, int[] history) {
-    if (round == 4) {
-      setStrategy(new TopStrategy());
-    }
-    throw new UnsupportedOperationException("Unimplemented method 'play'");
-    // super.play();
+    super.play(round, history);
   }
 }
