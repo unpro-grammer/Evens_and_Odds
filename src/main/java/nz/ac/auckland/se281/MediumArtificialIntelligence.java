@@ -2,6 +2,10 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * The Medium AI begins with the random strategy and holds this for three rounds. It then switches
+ * to the top strategy permanently.
+ */
 public class MediumArtificialIntelligence extends ArtificialIntelligence {
 
   /**
@@ -14,7 +18,7 @@ public class MediumArtificialIntelligence extends ArtificialIntelligence {
     setStrategy(new RandomStrategy());
   }
 
-  /** Medium AI bot gives their input based on current strategy */
+  /** Medium AI bot gives their input based on current strategy. */
   @Override
   public void play(int round, int[] history, boolean wonLastGame) {
     if (round == 4) {

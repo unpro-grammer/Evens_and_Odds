@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/** Abstract class serving as a blueprint for different types of AI players. */
 public abstract class ArtificialIntelligence {
   protected String name = "HAL-9000";
   protected Choice choice;
   protected GameStrategy gameStrat;
   private int currentHand;
-  protected int round;
 
   /**
    * Create new instance of an AI player. This constructor can only be used alongside a constructor
@@ -42,7 +42,7 @@ public abstract class ArtificialIntelligence {
   }
 
   /**
-   * Gets AI's input.
+   * Gets AI's input (number of fingers).
    *
    * @return Number of fingers AI puts forth.
    */
@@ -51,7 +51,7 @@ public abstract class ArtificialIntelligence {
   }
 
   /**
-   * Gets AI's name.
+   * Gets AI's name (invariably HAL-9000).
    *
    * @return Name of AI.
    */

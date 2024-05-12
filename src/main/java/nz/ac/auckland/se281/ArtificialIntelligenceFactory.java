@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
+/** Factory class that creates different types of AI instances depending on user choice. */
 public class ArtificialIntelligenceFactory {
   /**
    * Create a new instance of an AI player at the start of a new game based on the difficulty level
@@ -14,6 +15,7 @@ public class ArtificialIntelligenceFactory {
    */
   public static ArtificialIntelligence createArtificialIntelligence(
       Difficulty difficulty, Choice choice) {
+    // determine which type of AI to create based on given difficulty
     switch (difficulty) {
       case EASY:
         return new EasyArtificialIntelligence(choice);

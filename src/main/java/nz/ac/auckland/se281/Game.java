@@ -11,12 +11,12 @@ public class Game {
   protected Difficulty difficulty;
   protected Choice choice;
   private ArtificialIntelligence aiPlayer = null;
-  private boolean AIWonLastGame = false;
+  private boolean aiWonLastGame = false;
   private int humanWins;
   private int aiWins;
 
   // records frequency of even nums being chosen in index 0, and odd in index 1
-  int[] history;
+  protected int[] history;
 
   /**
    * Registers the desired difficulty level and choice (odd or even), and then greets the user based
@@ -34,7 +34,7 @@ public class Game {
     this.difficulty = difficulty;
     this.choice = choice;
     this.aiPlayer = ArtificialIntelligenceFactory.createArtificialIntelligence(difficulty, choice);
-    this.AIWonLastGame = false;
+    this.aiWonLastGame = false;
     this.history = new int[] {0, 0};
     this.humanWins = 0;
     this.aiWins = 0;
@@ -86,11 +86,13 @@ public class Game {
     }
 
     oddOrEven = Utils.isEven(sum) ? "EVEN" : "ODD";
+
+    // update stats of all players accordingly
     if (winner == player) {
-      AIWonLastGame = false;
+      aiWonLastGame = false;
       humanWins++;
     } else {
-      AIWonLastGame = true;
+      aiWonLastGame = true;
       aiWins++;
     }
 
@@ -114,7 +116,7 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
 
     // display AI's play
-    aiPlayer.play(round, history, AIWonLastGame);
+    aiPlayer.play(round, history, aiWonLastGame);
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 

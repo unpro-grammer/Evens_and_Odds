@@ -2,6 +2,11 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * The Hard AI uses the random strategy for he first three games. It then starts to adapt,
+ * alternating between random and top strategies depending on whether the current one is getting
+ * them a win.
+ */
 public class HardArtificialIntelligence extends ArtificialIntelligence {
 
   private GameStrategy randomStrat = new RandomStrategy();
@@ -14,7 +19,7 @@ public class HardArtificialIntelligence extends ArtificialIntelligence {
    */
   public HardArtificialIntelligence(Choice choice) {
     super(choice);
-    setStrategy(randomStrat);
+    setStrategy(new RandomStrategy());
   }
 
   /** Hard AI bot gives their input based on current strategy. */
