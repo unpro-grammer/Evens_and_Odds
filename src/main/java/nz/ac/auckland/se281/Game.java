@@ -14,7 +14,6 @@ public class Game {
   boolean AIWonLastGame = false;
   private int humanWins;
   private int aiWins;
-  private int ties;
 
   // records frequency of even nums being chosen in index 0, and odd in index 1
   int[] history;
@@ -35,10 +34,10 @@ public class Game {
     this.difficulty = difficulty;
     this.choice = choice;
     this.aiPlayer = ArtificialIntelligenceFactory.createAI(difficulty, choice);
+    this.AIWonLastGame = false;
     this.history = new int[] {0, 0};
     this.humanWins = 0;
     this.aiWins = 0;
-    this.ties = 0;
   }
 
   private boolean isValidInput(String num) {
@@ -73,7 +72,13 @@ public class Game {
     }
 
     oddOrEven = Utils.isEven(sum) ? "EVEN" : "ODD";
-    AIWonLastGame = (winner == player) ? false : true;
+    if (winner == player) {
+      AIWonLastGame = false;
+      humanWins++;
+    } else {
+      AIWonLastGame = true;
+      aiWins++;
+    }
 
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(sum + "", oddOrEven, winner);
   }
@@ -98,7 +103,17 @@ public class Game {
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 
-  public void endGame() {}
+  public void endGame() {
+    if (humanWins != aiWins) {
+      String winner = humanWins > aiWins ? player : aiPlayer.getName();
+      MessageCli.PRINT_PLAYER_WINS.printMessage();
+    }
+  }
 
-  public void showStats() {}
+  public void showStats() {
+    if (aiPlayer == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+  }
 }
