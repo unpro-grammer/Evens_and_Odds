@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
-public class HardAI extends ArtificialIntelligence {
+public class HardArtificialIntelligence extends ArtificialIntelligence {
 
   GameStrategy randomStrat = new RandomStrategy();
   GameStrategy topStrat = new TopStrategy();
 
-  public HardAI(Choice choice) {
+  public HardArtificialIntelligence(Choice choice) {
     super(choice);
     setStrategy(new RandomStrategy());
   }

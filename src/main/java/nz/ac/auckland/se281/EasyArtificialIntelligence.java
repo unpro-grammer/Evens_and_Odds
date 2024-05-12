@@ -2,9 +2,9 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
-public class EasyAI extends ArtificialIntelligence {
+public class EasyArtificialIntelligence extends ArtificialIntelligence {
 
-  public EasyAI(Choice choice) {
+  public EasyArtificialIntelligence(Choice choice) {
     super(choice);
     gameStrat = new RandomStrategy();
   }

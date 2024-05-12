@@ -30,7 +30,7 @@ public class Game {
     this.player = options[0];
     this.difficulty = difficulty;
     this.choice = choice;
-    this.aiPlayer = AIFactory.createAI(difficulty, choice);
+    this.aiPlayer = ArtificialIntelligenceFactory.createAI(difficulty, choice);
     this.history = new int[] {0, 0};
   }
 

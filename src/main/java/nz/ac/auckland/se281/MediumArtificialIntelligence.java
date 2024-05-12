@@ -2,9 +2,9 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
-public class MediumAI extends ArtificialIntelligence {
+public class MediumArtificialIntelligence extends ArtificialIntelligence {
 
-  public MediumAI(Choice choice) {
+  public MediumArtificialIntelligence(Choice choice) {
     super(choice);
     setStrategy(new RandomStrategy());
   }
