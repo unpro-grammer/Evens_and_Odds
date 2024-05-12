@@ -33,7 +33,7 @@ public class Game {
     this.player = options[0];
     this.difficulty = difficulty;
     this.choice = choice;
-    this.aiPlayer = ArtificialIntelligenceFactory.createAI(difficulty, choice);
+    this.aiPlayer = ArtificialIntelligenceFactory.createArtificialIntelligence(difficulty, choice);
     this.AIWonLastGame = false;
     this.history = new int[] {0, 0};
     this.humanWins = 0;
@@ -72,6 +72,7 @@ public class Game {
     String oddOrEven;
     history[playerHand % 2]++;
 
+    // get winner based on total sum and whther the player bet even or odd.
     switch (choice) {
       case ODD:
         winner = Utils.isOdd(sum) ? player : ai.getName();
@@ -105,12 +106,14 @@ public class Game {
     MessageCli.START_ROUND.printMessage(round + "");
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
+    // continue to ask for user input if they do not give a valid input
     while (!isValidInput(input)) {
       MessageCli.INVALID_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
 
+    // display AI's play
     aiPlayer.play(round, history, AIWonLastGame);
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
@@ -136,7 +139,10 @@ public class Game {
     if (!gameActive()) {
       return;
     }
+
     showStats();
+
+    // determine overall winner
     if (humanWins != aiWins) {
       String overallWinner = humanWins > aiWins ? player : aiPlayer.getName();
       MessageCli.PRINT_END_GAME.printMessage(overallWinner);

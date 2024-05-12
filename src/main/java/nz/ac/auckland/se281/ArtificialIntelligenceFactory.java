@@ -12,7 +12,8 @@ public class ArtificialIntelligenceFactory {
    * @param choice The player's wager between EVEN and ODD.
    * @return The newly created AI player of a given difficulty.
    */
-  public static ArtificialIntelligence createAI(Difficulty difficulty, Choice choice) {
+  public static ArtificialIntelligence createArtificialIntelligence(
+      Difficulty difficulty, Choice choice) {
     switch (difficulty) {
       case EASY:
         return new EasyArtificialIntelligence(choice);
