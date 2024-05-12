@@ -10,6 +10,10 @@ public class Game {
   String player = "";
   Difficulty difficulty;
   Choice choice;
+  ArtificialIntelligence aiPlayer;
+
+  // records frequency of even nums being chosen in index 0, and odd in index 1
+  int[] history;
 
   /**
    * Registers the desired difficulty level and choice (odd or even), and then greets the user based
@@ -25,6 +29,8 @@ public class Game {
     this.player = options[0];
     this.difficulty = difficulty;
     this.choice = choice;
+    this.aiPlayer = AIFactory.createAI(difficulty, choice);
+    this.history = new int[] {0, 0};
   }
 
   private boolean isValidInput(String num) {
@@ -44,6 +50,7 @@ public class Game {
     int sum = playerHand + aiHand;
     String winner;
     String oddOrEven;
+    history[playerHand % 2]++;
 
     switch (choice) {
       case ODD:
@@ -73,8 +80,7 @@ public class Game {
     }
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
 
-    ArtificialIntelligence aiPlayer = AIFactory.createAI(difficulty, choice);
-    aiPlayer.play();
+    aiPlayer.play(round, history);
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 

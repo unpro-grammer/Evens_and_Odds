@@ -10,7 +10,7 @@ public class HardAI extends ArtificialIntelligence {
   }
 
   @Override
-  public void play() {
+  public void play(int round, int[] history) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'play'");
   }

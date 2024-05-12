@@ -7,6 +7,7 @@ public abstract class ArtificialIntelligence {
   protected Choice choice;
   protected GameStrategy gameStrat;
   private int currentHand;
+  protected int round;
 
   public ArtificialIntelligence(Choice choice) {
     this.choice = choice;
@@ -16,7 +17,7 @@ public abstract class ArtificialIntelligence {
     this.gameStrat = gameStrat;
   }
 
-  public void play() {
+  public void play(int round, int[] history) {
     currentHand = gameStrat.playNumber();
     MessageCli.PRINT_INFO_HAND.printMessage(name, currentHand + "");
   }

@@ -6,12 +6,15 @@ public class MediumAI extends ArtificialIntelligence {
 
   public MediumAI(Choice choice) {
     super(choice);
-    // TODO Auto-generated constructor stub
+    setStrategy(new RandomStrategy());
   }
 
   @Override
-  public void play() {
-    // TODO Auto-generated method stub
+  public void play(int round, int[] history) {
+    if (round == 4) {
+      setStrategy(new TopStrategy());
+    }
     throw new UnsupportedOperationException("Unimplemented method 'play'");
+    // super.play();
   }
 }

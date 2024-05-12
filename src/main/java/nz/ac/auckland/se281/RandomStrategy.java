@@ -9,8 +9,4 @@ public class RandomStrategy implements GameStrategy {
     aiHand = Utils.getRandomNumberRange(0, 5);
     return aiHand;
   }
-
-  public int getAiHand() {
-    return aiHand;
-  }
 }
