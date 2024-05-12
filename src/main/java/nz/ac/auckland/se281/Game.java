@@ -84,9 +84,7 @@ public class Game {
   }
 
   public void play() {
-    // check if new game has been started
-    if (aiPlayer == null) {
-      MessageCli.GAME_NOT_STARTED.printMessage();
+    if (!gameActive()) {
       return;
     }
     round++;
@@ -103,17 +101,31 @@ public class Game {
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 
-  public void endGame() {
-    if (humanWins != aiWins) {
-      String winner = humanWins > aiWins ? player : aiPlayer.getName();
-      MessageCli.PRINT_PLAYER_WINS.printMessage();
+  private boolean gameActive() {
+    if (aiPlayer == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return false;
     }
+    return true;
+  }
+
+  public void endGame() {
+    if (!gameActive()) {
+      return;
+    }
+    showStats();
+
+    //
+
+    aiPlayer = null;
   }
 
   public void showStats() {
-    if (aiPlayer == null) {
-      MessageCli.GAME_NOT_STARTED.printMessage();
+    if (!gameActive()) {
       return;
     }
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(player, humanWins + "", aiWins + "");
+    MessageCli.PRINT_PLAYER_WINS.printMessage(aiPlayer.getName(), aiWins + "", humanWins + "");
   }
 }
