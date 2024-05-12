@@ -9,7 +9,7 @@ public class HardArtificialIntelligence extends ArtificialIntelligence {
 
   public HardArtificialIntelligence(Choice choice) {
     super(choice);
-    setStrategy(new RandomStrategy());
+    setStrategy(randomStrat);
   }
 
   @Override

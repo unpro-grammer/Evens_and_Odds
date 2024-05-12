@@ -10,7 +10,7 @@ public class Game {
   String player = "";
   Difficulty difficulty;
   Choice choice;
-  ArtificialIntelligence aiPlayer;
+  ArtificialIntelligence aiPlayer = null;
   boolean AIWonLastGame = false;
 
   // records frequency of even nums being chosen in index 0, and odd in index 1
@@ -72,6 +72,11 @@ public class Game {
   }
 
   public void play() {
+    // check if new game has been started
+    if (aiPlayer == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
     round++;
     MessageCli.START_ROUND.printMessage(round + "");
     MessageCli.ASK_INPUT.printMessage();
