@@ -11,6 +11,7 @@ public class Game {
   Difficulty difficulty;
   Choice choice;
   ArtificialIntelligence aiPlayer;
+  boolean AIWonLastGame = false;
 
   // records frequency of even nums being chosen in index 0, and odd in index 1
   int[] history;
@@ -65,6 +66,7 @@ public class Game {
     }
 
     oddOrEven = Utils.isEven(sum) ? "EVEN" : "ODD";
+    AIWonLastGame = (winner == player) ? false : true;
 
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(sum + "", oddOrEven, winner);
   }
@@ -80,7 +82,7 @@ public class Game {
     }
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
 
-    aiPlayer.play(round, history);
+    aiPlayer.play(round, history, AIWonLastGame);
     getWinner(Integer.parseInt(input), aiPlayer, choice);
   }
 

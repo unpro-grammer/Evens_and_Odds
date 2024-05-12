@@ -17,7 +17,7 @@ public abstract class ArtificialIntelligence {
     this.gameStrat = gameStrat;
   }
 
-  public void play(int round, int[] history) {
+  public void play(int round, int[] history, boolean wonLastGame) {
     currentHand = gameStrat.playNumber(history, choice);
     MessageCli.PRINT_INFO_HAND.printMessage(name, currentHand + "");
   }

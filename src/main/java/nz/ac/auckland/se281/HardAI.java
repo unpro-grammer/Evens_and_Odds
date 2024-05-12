@@ -4,14 +4,21 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAI extends ArtificialIntelligence {
 
+  GameStrategy randomStrat = new RandomStrategy();
+  GameStrategy topStrat = new TopStrategy();
+
   public HardAI(Choice choice) {
     super(choice);
-    // TODO Auto-generated constructor stub
+    setStrategy(new RandomStrategy());
   }
 
   @Override
-  public void play(int round, int[] history) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'play'");
+  public void play(int round, int[] history, boolean wonLastGame) {
+    if (round >= 4) {
+      if (!wonLastGame) {
+        setStrategy(gameStrat instanceof RandomStrategy ? topStrat : randomStrat);
+      }
+    }
+    super.play(round, history, wonLastGame);
   }
 }
