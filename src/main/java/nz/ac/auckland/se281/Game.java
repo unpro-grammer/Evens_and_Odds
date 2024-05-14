@@ -111,6 +111,7 @@ public class Game {
     // continue to ask for user input if they do not give a valid input
     while (!isValidInput(input)) {
       MessageCli.INVALID_INPUT.printMessage();
+      MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
     MessageCli.PRINT_INFO_HAND.printMessage(player, input);
