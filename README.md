@@ -1,3 +1,3 @@
 # Assignment 2
 
-You will find instructions for this assignment on the course website.
+Applying factory and strategy design patterns to develop a simple game that can be played against bots of varying difficulty.
